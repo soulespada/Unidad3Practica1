@@ -1,5 +1,5 @@
 package com.ieschabas;
-import java.util.Scanner;
+
 /**
  * Clase que comprueba si un numero coincide con uno secreto segun x intentos y almacena los intentos en un Array
  * @author Adrian
@@ -10,51 +10,43 @@ public class JuegoAdivinar {
 
     /**
      * Metodo que muestra si el numero es mayor o menor que el introducido o si es el mismo
-     * @param secreto
-     * @param intento
+     * @param secreto numero secreto a adivinar
+     * @param intento intento actual del jugador
      */
     public void evaluarIntento(int secreto, int intento) {
-
-            if (intento < secreto) {
-                System.out.println("El numero es menor."+" Has realizado "+(contador+1)+" intentos.");
-            } else if (intento > secreto) {
-                System.out.println("El numero es mayor."+" Has realizado "+(contador+1)+" intentos.");
-            } else {
-                System.out.println("Has acertado!"+" Has realizado "+(contador+1)+" intentos.");
-            }
-            contador++;
-        System.out.println();
+        if (intento < secreto) {
+            System.out.println("El número es menor. Has realizado " + (contador + 1) + " intentos.");
+        } else if (intento > secreto) {
+            System.out.println("El número es mayor. Has realizado " + (contador + 1) + " intentos.");
+        } else {
+            System.out.println("¡Has acertado! Has realizado " + (contador + 1) + " intentos.");
         }
+        contador++;
+        System.out.println();
+    }
 
     /**
-     * Metodo que almacena numeros que son 9 intentos del usuario en un array y devuelve el numero de intentos o -1 si excedes los intentos
-     * @param secreto
-     * @param intentos
-     * @return contador
+     * Métode que evalúa una lista de intentos
+     *
+     * @param secreto número secreto
+     * @param intentos array con los intentos del jugador
+     * @return número del intento acertado o -1 si no se acierta
      */
     public int jugar(int secreto, int[] intentos) {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Tienes 9 intentos");
-
-        for (int i = 0; i <= intentos.length; i++) {
-            if (intentos[i]==-5){
-                contador=-1;
-                System.out.println("Has agotado el limite de intentos.");break;}
-            System.out.println("Introduce un numero");
-
-            int intento = scan.nextInt();
-
-
-            intentos[i] = intento;
-            evaluarIntento(secreto, intento);
-            if(secreto==intentos[i]){break;}
+        if (intentos == null) {
+            return -1;
         }
-            return contador;
 
+        for (int i = 0; i < intentos.length; i++) {
+            int intento = intentos[i];
+            evaluarIntento(secreto, intento);
+
+            if (secreto == intento) {
+                return i + 1; // número del intento (no índice)
+            }
+        }
+
+        // si no acierta ninguno
+        return -1;
     }
 }
-
-
-
-
-
