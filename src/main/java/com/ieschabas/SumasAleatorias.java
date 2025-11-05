@@ -12,6 +12,9 @@ public class SumasAleatorias {
      * @return
      */
     public int sumaDosAleatorios(Random rng){
+        if (rng == null) {
+            throw new IllegalArgumentException("El generador Random no puede ser nulo");
+        }
         int a = rng.nextInt(1001);
         int b = rng.nextInt(1001);
 
@@ -25,6 +28,9 @@ public class SumasAleatorias {
      * @return resultados
      */
     public int[] generarSumas(int repeticiones, Random rng){
+        if (rng == null) {
+            throw new IllegalArgumentException("El generador Random no puede ser nulo");
+        }
         int[] resultados = new int[repeticiones];
         for (int i=0; i<repeticiones;i++){
             //rellena el array con las sumas

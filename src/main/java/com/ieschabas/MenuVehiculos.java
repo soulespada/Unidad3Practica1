@@ -15,15 +15,15 @@ public class MenuVehiculos {
      */
     public String seleccionarOpcion(int opcion){
             switch (opcion){
-                case 1:return "Opcion 1->Mantenimiento de clientes";
+                case 1:return "Mantenimiento de clientes";
 
-                case 2:return "Opcion 2->Introducción de facturas";
+                case 2:return "Introducción de facturas";
 
-                case 3:return "Opcion 3->Listado de facturas";
+                case 3:return "Listado de facturas";
 
-                case 4:return "Opcion 4->Finalizar";
+                case 4:return "Finalizar";
 
-                default:return "La opcion no existe. Vuelve a intentarlo.";
+                default:return "La opcion no existe. Vuelve a intentarlo";
 
             }
 

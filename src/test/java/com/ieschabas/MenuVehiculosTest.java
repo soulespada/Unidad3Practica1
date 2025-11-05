@@ -36,7 +36,7 @@ public class MenuVehiculosTest {
     @Test
     void testOpcionInvalida() {
         MenuVehiculos menu = new MenuVehiculos();
-        assertEquals("La opción no existe. Vuelve a intentarlo", menu.seleccionarOpcion(7));
+        assertEquals("La opcion no existe. Vuelve a intentarlo", menu.seleccionarOpcion(7));
     }
 }
 

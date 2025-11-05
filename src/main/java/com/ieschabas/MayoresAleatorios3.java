@@ -28,6 +28,12 @@ public class MayoresAleatorios3 {
      * @return mayores
      */
     public int[] generarMaximos3(int repeticiones, Random rng){
+        if (rng == null) {
+            throw new IllegalArgumentException("El generador Random no puede ser nulo");
+        }
+        if (repeticiones < 0) {
+            throw new IllegalArgumentException("El número de repeticiones no puede ser negativo");
+        }
         int[] mayores = new int[repeticiones];
         for (int i=0; i<repeticiones;i++){
             mayores[i]=max3(rng.nextInt(1001), rng.nextInt(1001), rng.nextInt(1001));

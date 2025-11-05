@@ -29,6 +29,12 @@ public class MayoresAleatorios4 {
      * @return mayores
      */
     public int[] generarMaximos4(int repeticiones, Random rng){
+        if (rng == null) {
+            throw new IllegalArgumentException("El generador Random no puede ser nulo");
+        }
+        if (repeticiones < 0) {
+            throw new IllegalArgumentException("El número de repeticiones no puede ser negativo");
+        }
         //le asignamos al array tantos espacios como repeticiones
         int[] mayores = new int[repeticiones];
         //recorremos el array usando el metodo max4
